@@ -10,7 +10,7 @@ class HomeScreen extends StatelessWidget {
         appBar: AppBar(
           title: const Text('Menu de materia 3 '),
         ),
-        body: const _ListTile());
+        body: const _HomeView());
   }
 }
 
@@ -20,7 +20,10 @@ class _HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-        itemCount: appMenuItems.length, itemBuilder: menuList);
+        itemCount: appMenuItems.length,
+        itemBuilder: (context, index) => _ListTile(
+              menuItem: appMenuItems[index],
+            ));
   }
 }
 
@@ -30,8 +33,12 @@ Widget menuList(BuildContext context, int index) {
 }
 
 class _ListTile extends StatelessWidget {
-  const _ListTile();
-  get menuItem => appMenuItems;
+  const _ListTile({
+    super.key,
+    required this.menuItem,
+  });
+  final MenuItem menuItem;
+
   @override
   Widget build(BuildContext context) {
     return ListTile(
@@ -40,7 +47,7 @@ class _ListTile extends StatelessWidget {
       splashColor: Colors.blueAccent,
       tileColor: Colors.green,
       title: Text(menuItem.title),
-      subtitle: Text(menuItem.subtitle),
+      subtitle: Text(menuItem.subTitle),
       onTap: () {},
     );
   }
