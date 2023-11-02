@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:triki_triki/config/menu/menu_items.dart';
 
 class HomeScreen extends StatelessWidget {
+  static const String screenName = 'home_screen';
   const HomeScreen({super.key});
 
   @override
@@ -42,13 +44,14 @@ class _ListTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      leading: Icon(menuItem.icon),
-      hoverColor: const Color.fromARGB(255, 255, 64, 182),
-      splashColor: Colors.blueAccent,
-      tileColor: Colors.green,
-      title: Text(menuItem.title),
-      subtitle: Text(menuItem.subTitle),
-      onTap: () {},
-    );
+        leading: Icon(menuItem.icon),
+        hoverColor: const Color.fromARGB(255, 255, 64, 182),
+        splashColor: Colors.blueAccent,
+        tileColor: Colors.green,
+        title: Text(menuItem.title),
+        subtitle: Text(menuItem.subTitle),
+        onTap: () {
+          context.pushNamed(menuItem.screenName);
+        });
   }
 }
