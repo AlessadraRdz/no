@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:triki_triki/config/router/app_router.dart';
-import 'package:triki_triki/config/theme/app_theme.dart';
-import 'package:triki_triki/presentation/screen/home/home_screen.dart';
+import 'config/router/app_router.dart';
+import 'config/theme/app_theme.dart';
 
 void main() {
   runApp(const MyApp());

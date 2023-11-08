@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:triki_triki/presentation/screen/button/button_screen.dart';
-import 'package:triki_triki/presentation/screen/card/card_screen.dart';
-import 'package:triki_triki/presentation/screen/home/home_screen.dart';
+
+import '../../presentation/screen/button/button_screen.dart';
+import '../../presentation/screen/cards/card_screen.dart';
+import '../../presentation/screen/home/home_screen.dart';
 
 final GoRouter appRouter = GoRouter(
   routes: <RouteBase>[
