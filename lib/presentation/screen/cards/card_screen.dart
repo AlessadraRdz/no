@@ -48,6 +48,7 @@ class _CardType1 extends StatelessWidget {
   @override
   Widget build(BuildContext context) => Card(
         elevation: elevation,
+        color: Colors.amber,
         child: Padding(
           padding: const EdgeInsets.fromLTRB(10, 5, 10, 10),
           child: Column(
@@ -77,6 +78,7 @@ class _CardType2 extends StatelessWidget {
     final colors = Theme.of(context).colorScheme;
     return Card(
       elevation: elevation,
+      color: Colors.amber,
       shape: RoundedRectangleBorder(
           side: BorderSide(color: colors.outline),
           borderRadius: const BorderRadius.all(Radius.circular(15))),
@@ -107,9 +109,9 @@ class _CardType3 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final colors = Theme.of(context).colorScheme;
+    //final colors = Theme.of(context).colorScheme;
     return Card(
-      color: colors.surfaceVariant,
+      color: Colors.amber,
       elevation: elevation,
       child: Padding(
         padding: const EdgeInsets.fromLTRB(10, 5, 10, 10),
