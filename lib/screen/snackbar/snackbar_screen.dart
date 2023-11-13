@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-
-import '../../widgets/appBars/app_bar_custom.dart';
+import '../../presentation/widgets/appBars/app_bar_custom.dart';
 import 'snack_bar_custom.dart';
+
 
 class SnackBarScreen extends StatelessWidget
     with AppBarCustom, CustomSnackBars {

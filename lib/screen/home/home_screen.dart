@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../config/menu/menu_items.dart';
+import '../../config/menu/menu_items.dart';
 
 class HomeScreen extends StatelessWidget {
   static const String screenName = 'home_screen';
@@ -51,9 +51,7 @@ class _ListTile extends StatelessWidget {
         trailing: Icon(Icons.arrow_forward_ios_rounded, color: colors.primary),
         hoverColor: Color.fromARGB(255, 64, 255, 245),
         splashColor: const Color.fromARGB(255, 68, 255, 124),
-        title: Text(
-          menuItem.title,
-        ),
+        title: Text(menuItem.title),
         subtitle: Text(menuItem.subTitle),
         onTap: () {
           context.push(menuItem.link);

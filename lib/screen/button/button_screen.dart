@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import '../../widgets/custom_button.dart';
+import 'package:triki/presentation/widgets/custom_button.dart';
 
 class ButtonsScreen extends StatelessWidget {
   static const String screenName = 'button_screen';
