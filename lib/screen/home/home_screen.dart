@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../config/menu/menu_items.dart';
+import '../../presentation/widgets/slideMenu.dart';
 
 class HomeScreen extends StatelessWidget {
   static const String screenName = 'home_screen';
@@ -9,52 +10,42 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final scaffoldKey = GlobalKey<ScaffoldState>();
     return Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.cyan,
-          title: const Text('Menu de materia Unidad 3 '),
+          title: const Text('Menu de Materia 3'),
         ),
-        body: const _HomeView());
+        body: ListView.builder(
+            itemCount: appMenuItems.length, itemBuilder: menuList),
+        drawer: SideMenu(scaffoldKey: scaffoldKey));
+  }
+
+  Widget menuList(BuildContext context, int index) {
+    final menuItem = appMenuItems[index];
+    return _CustomListTitle(menuItem: menuItem);
   }
 }
 
-class _HomeView extends StatelessWidget {
-  const _HomeView();
-
-  @override
-  Widget build(BuildContext context) {
-    return ListView.builder(
-        itemCount: appMenuItems.length,
-        itemBuilder: (context, index) => _ListTile(
-              menuItem: appMenuItems[index],
-            ));
-  }
-}
-
-Widget menuList(BuildContext context, int index) {
-  final menuItem = appMenuItems[index];
-  return Text(menuItem.title);
-}
-
-class _ListTile extends StatelessWidget {
-  const _ListTile({
-    super.key,
+class _CustomListTitle extends StatelessWidget {
+  const _CustomListTitle({
     required this.menuItem,
   });
+
   final MenuItem menuItem;
 
   @override
   Widget build(BuildContext context) {
     final colors = Theme.of(context).colorScheme;
+
     return ListTile(
-        leading: Icon(menuItem.icon, color: colors.primary),
-        trailing: Icon(Icons.arrow_forward_ios_rounded, color: colors.primary),
-        hoverColor: Color.fromARGB(255, 64, 255, 245),
-        splashColor: const Color.fromARGB(255, 68, 255, 124),
-        title: Text(menuItem.title),
-        subtitle: Text(menuItem.subTitle),
-        onTap: () {
-          context.push(menuItem.link);
-        });
+      leading: Icon(menuItem.icon, color: colors.primary),
+      trailing: Icon(Icons.arrow_forward_ios_rounded, color: colors.primary),
+      title: Text(menuItem.title),
+      subtitle: Text(menuItem.subTitle),
+      onTap: () {
+        context.push(menuItem.link);
+      },
+    );
   }
 }
